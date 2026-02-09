@@ -24,7 +24,7 @@ internal class PluginActionTemplate(
                 "import ${foundationPackage?.state?.noStatePackagePath}\n".addIf { !hasState } +
                 "\n" +
                 "\n" +
-                "sealed class $fileName : ReducibleAction<$state, $slice> {\n" +
+                "sealed interface $fileName : ReducibleAction<$state, $slice> {\n" +
                 "}\n"
     }
 }

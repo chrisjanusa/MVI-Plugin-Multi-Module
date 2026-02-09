@@ -23,29 +23,38 @@ internal class PluginViewModelTemplate(
         val slice = if (hasSlice) {
             pluginPackage?.slice?.name ?: "plugin not found"
         } else FoundationSliceFileManager.NO_SLICE
-        return "import ${foundationPackage?.action?.packagePath}\n" +
-        "import ${foundationPackage?.parentViewModel?.packagePath}\n" +
-        "import ${foundationPackage?.parentViewModel?.packagePathExcludingFile}.getFilteredSliceUpdateFlow\n".addIf { hasSlice } +
-        "import ${pluginPackage?.pluginAction?.packagePath}\n" +
-        "import ${foundationPackage?.action?.packagePathExcludingFile}.OnAppAction\n" +
+        return "import androidx.lifecycle.ViewModel\n" +
+        "import ${foundationPackage?.action?.packagePath}\n" +
+        "import ${foundationPackage?.action?.packagePathExcludingFile}.ActionEffect\n" +
+        "import ${foundationPackage?.action?.packagePathExcludingFile}.StateEffect\n" +
         "import ${foundationPackage?.pluginViewModel?.packagePath}\n" +
-        "import kotlinx.coroutines.flow.map\n".addIf { hasSlice } +
-        "import kotlinx.coroutines.flow.Flow\n".addIf { !hasSlice } +
-        "import ${pluginPackage?.slice?.packagePath}\n".addIf { hasSlice } +
         "import ${foundationPackage?.slice?.noSlicePackagePath}\n".addIf { !hasSlice } +
-        "import ${pluginPackage?.state?.packagePath}\n".addIf { hasState } +
         "import ${foundationPackage?.state?.noStatePackagePath}\n".addIf { !hasState } +
+        "import dev.zacsweers.metro.AppScope\n" +
+        "import dev.zacsweers.metro.ContributesIntoMap\n" +
+        "import dev.zacsweers.metro.Inject\n" +
+        "import dev.zacsweers.metro.binding\n" +
+        "import dev.zacsweers.metrox.viewmodel.ViewModelKey\n" +
         "\n" +
-        "class $fileName(onAppAction: OnAppAction, private val parentViewModel: ${foundationPackage?.parentViewModel}?)" +
-        " : PluginViewModel<${state}, ${slice}>(onAppAction, parentViewModel) {\n" +
+        "@Inject\n" +
+        "@ViewModelKey($fileName::class)\n" +
+        "@ContributesIntoMap(\n" +
+        "    AppScope::class,\n" +
+        "    binding<ViewModel>()\n" +
+        ")\n" +
+        "class $fileName(\n" +
+        ") : PluginViewModel<${state}, ${slice}>() {\n" +
         "    override val initialState = ${state}()\n".addIf { hasState } +
         "    override val initialState = ${state}\n".addIf { !hasState } +
         "    override val initialSlice = ${slice}\n".addIf { !hasSlice } +
         "    override val initialSlice = ${slice}()\n".addIf { hasSlice } +
-        "    override fun getSliceFlow() =\n".addIf { hasSlice } +
-        "        parentViewModel?.getFilteredSliceUpdateFlow<${pluginPackage?.sliceUpdate}>()?.map { it.slice }\n".addIf { hasSlice } +
-        "    override fun getSliceFlow(): Flow<${slice}>? = null".addIf { !hasSlice } +
         "\n" +
+        "\n" +
+        "    override val stateEffectSet = setOf<StateEffect>(\n" +
+        "    )\n" +
+        "\n" +
+        "    override val actionEffectSet = setOf<ActionEffect>(\n" +
+        "    )\n" +
         "\n" +
         "    override fun reduce(action: ${foundationPackage?.action}, state: ${state}, slice: ${slice}) =\n" +
         "        when (action) {\n" +
@@ -53,13 +62,8 @@ internal class PluginViewModelTemplate(
         "            else -> state\n" +
         "        }\n" +
         "\n" +
-        "\n" +
-        "    override val effectList: List<${pluginPackage?.pluginEffect}> = listOf(\n" +
-        "    )\n" +
-        "\n" +
         "    init {\n" +
         "        triggerEffects()\n" +
-        "        monitorSliceUpdates()\n" +
         "    }\n" +
         "}\n"
     }

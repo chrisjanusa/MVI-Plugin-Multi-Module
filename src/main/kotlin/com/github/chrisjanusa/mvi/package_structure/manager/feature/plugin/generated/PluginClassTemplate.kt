@@ -19,20 +19,23 @@ internal class PluginClassTemplate(
     override fun createContent(): String {
         val state = if (hasState) { pluginPackage?.state?.name ?: "plugin not found" } else FoundationStateFileManager.NO_STATE
         val slice = if (hasSlice) { pluginPackage?.slice?.name ?: "plugin not found" } else FoundationSliceFileManager.NO_SLICE
+        val viewModel = pluginPackage?.viewModel?.name ?: "plugin not found"
+
         return "import androidx.compose.runtime.Composable\n" +
                 "import androidx.compose.ui.Modifier\n" +
-                "import ${rootPackage?.commonPackage?.classNameHelper?.functionPackagePath}\n" +
                 "import ${pluginPackage?.uiPackage?.content?.packagePath}\n" +
                 "import ${foundationPackage?.action?.packagePathExcludingFile}.OnAction\n" +
                 "import ${foundationPackage?.plugin?.packagePath}\n" +
-                "import ${pluginPackage?.slice?.packagePath}\n".addIf { hasSlice } +
                 "import ${foundationPackage?.slice?.packagePathExcludingFile}.NoSlice\n".addIf { !hasSlice } +
-                "import ${pluginPackage?.state?.packagePath}\n".addIf { hasState } +
                 "import ${foundationPackage?.state?.packagePathExcludingFile}.NoState\n".addIf { !hasState } +
+                "import dev.zacsweers.metrox.viewmodel.metroViewModel\n" +
                 "\n" +
-                "object $fileName : Plugin<$state, $slice>(getClassName<${pluginName}ViewModel>()) {\n" +
+                "object $fileName : Plugin<$state, $slice>() {\n" +
                 "    @Composable\n" +
-                "    override fun Content(modifier: Modifier, state: $state, slice: $slice, onAction: OnAction) {\n" +
+                "    override fun pluginViewModel(): $viewModel = metroViewModel()\n" +
+                "\n" +
+                "    @Composable\n" +
+                "    override fun PluginContent(modifier: Modifier, state: $state, slice: $slice, onAction: OnAction) {\n" +
                 "        ${pluginName}Content(\n" +
                 "            modifier = modifier,\n" +
                 "            state = state,\n".addIf { hasState } +
