@@ -2,7 +2,7 @@ package com.github.chrisjanusa.mvi.action.feature.shared
 
 
 import com.github.chrisjanusa.mvi.package_structure.getManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.shared.SharedEffectFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.shared.SharedEffectFileManager
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

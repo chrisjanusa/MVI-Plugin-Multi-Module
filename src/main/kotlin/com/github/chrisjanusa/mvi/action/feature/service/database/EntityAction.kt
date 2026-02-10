@@ -2,7 +2,7 @@ package com.github.chrisjanusa.mvi.action.feature.service.database
 
 import com.github.chrisjanusa.mvi.package_structure.getManager
 import com.github.chrisjanusa.mvi.package_structure.getManagerOfType
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.service.database.DatabasePackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.database.DatabasePackage
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.DatabaseChild
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction

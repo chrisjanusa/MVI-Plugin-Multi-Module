@@ -3,6 +3,7 @@ package com.github.chrisjanusa.mvi.package_structure.instance_companion
 import com.github.chrisjanusa.mvi.helper.file_helper.KotlinFileType
 import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
 import com.github.chrisjanusa.mvi.package_structure.Manager
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.vfs.VirtualFile
@@ -38,14 +39,5 @@ abstract class InstanceCompanion {
         return file?.virtualFile
     }
 
-    internal fun PackageManager.createNewDirectory(name: String): VirtualFile? {
-        val existingDirectory = file.findChild(name)
-        if (existingDirectory != null) return existingDirectory
-
-        var dirFile: VirtualFile? = null
-        WriteAction.runAndWait(ThrowableRunnable {
-            dirFile = this.file.createChildDirectory(this, name)
-        })
-        return dirFile
-    }
+    internal fun PackageManager.createNewDirectory(name: String): VirtualFile? = file.createNewDirectory(name)
 }

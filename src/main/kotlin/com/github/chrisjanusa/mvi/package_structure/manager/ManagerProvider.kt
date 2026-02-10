@@ -2,7 +2,7 @@ package com.github.chrisjanusa.mvi.package_structure.manager
 
 import com.github.chrisjanusa.mvi.package_structure.Manager
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
-import com.github.chrisjanusa.mvi.package_structure.manager.app.AppActivityFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.app.AppActivityFileManager
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootChild
 
 object ManagerProvider {

@@ -1,3 +1,7 @@
 package com.github.chrisjanusa.mvi.package_structure
 
-interface Manager
+import com.intellij.openapi.vfs.VirtualFile
+
+interface Manager {
+    val file: VirtualFile
+}

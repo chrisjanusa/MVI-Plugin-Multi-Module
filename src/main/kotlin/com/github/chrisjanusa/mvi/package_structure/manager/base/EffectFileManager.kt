@@ -1,6 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.base
 
-import com.github.chrisjanusa.mvi.package_structure.manager.RootPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.intellij.openapi.vfs.VirtualFile
 
 abstract class EffectFileManager(file: VirtualFile) : FileManager(file) {

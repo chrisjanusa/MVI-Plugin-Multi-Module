@@ -6,7 +6,7 @@ import com.github.chrisjanusa.mvi.action.feature.plugin.action.ActionPromptResul
 import com.github.chrisjanusa.mvi.action.feature.plugin.action.ActionType
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.getManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.shared.SharedActionFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.shared.SharedActionFileManager
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

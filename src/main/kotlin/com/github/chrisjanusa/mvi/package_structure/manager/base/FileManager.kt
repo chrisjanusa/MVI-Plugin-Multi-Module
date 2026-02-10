@@ -7,7 +7,7 @@ import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.vfs.VirtualFile
 
 open class FileManager(
-    val file: VirtualFile,
+    override val file: VirtualFile,
 ): Manager {
     val packagePath by lazy {
         file.path.pathToPackage()

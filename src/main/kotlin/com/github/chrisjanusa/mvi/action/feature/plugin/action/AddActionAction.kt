@@ -3,7 +3,7 @@ package com.github.chrisjanusa.mvi.action.feature.plugin.action
 
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.getManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.plugin.PluginActionFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.PluginActionFileManager
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

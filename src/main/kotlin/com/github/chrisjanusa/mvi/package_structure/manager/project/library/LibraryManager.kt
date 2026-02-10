@@ -1,7 +1,7 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.project.library
 
 import com.github.chrisjanusa.mvi.package_structure.manager.project.ProjectGradleManager
-import com.github.chrisjanusa.mvi.package_structure.manager.project.app.ModuleGradleManager
+import com.github.chrisjanusa.mvi.package_structure.manager.module.ModuleGradleManager
 import com.github.chrisjanusa.mvi.package_structure.manager.project.gradle.LibsManager
 
 class LibraryManager(

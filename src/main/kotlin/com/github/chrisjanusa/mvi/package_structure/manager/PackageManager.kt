@@ -5,11 +5,12 @@ import com.github.chrisjanusa.mvi.helper.file_helper.getProjectPackage
 import com.github.chrisjanusa.mvi.helper.file_helper.pathToPackage
 import com.github.chrisjanusa.mvi.package_structure.Manager
 import com.intellij.openapi.application.WriteAction
+import com.intellij.openapi.util.registry.EarlyAccessRegistryManager.fileName
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiManager
 import com.intellij.util.ThrowableRunnable
 
-abstract class PackageManager(val file: VirtualFile): Manager {
+abstract class PackageManager(override val file: VirtualFile): Manager {
     val packagePath = file.path.pathToPackage()
     val name = file.name
 
@@ -26,6 +27,12 @@ abstract class PackageManager(val file: VirtualFile): Manager {
     fun deleteFile(fileName: String) {
         WriteAction.run(ThrowableRunnable {
             directory?.findFile(fileName)?.delete()
+        })
+    }
+
+    fun deleteDirectory(dirName: String) {
+        WriteAction.run(ThrowableRunnable {
+            directory?.findSubdirectory(dirName)?.delete()
         })
     }
 

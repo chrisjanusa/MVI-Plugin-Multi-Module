@@ -1,6 +1,6 @@
 package com.github.chrisjanusa.mvi.action.feature.shared
 
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.plugin.PluginSliceFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.PluginSliceFileManager
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.panel

@@ -4,7 +4,7 @@ package com.github.chrisjanusa.mvi.action.app
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.getManagerOfType
 import com.github.chrisjanusa.mvi.package_structure.getRootPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.RootPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.librarygroup.addCoroutines
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.librarygroup.addKoin
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.librarygroup.addNavigation

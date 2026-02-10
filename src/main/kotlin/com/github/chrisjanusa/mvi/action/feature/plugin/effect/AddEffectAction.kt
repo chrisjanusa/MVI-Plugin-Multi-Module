@@ -5,7 +5,7 @@ import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.getManager
 import com.github.chrisjanusa.mvi.package_structure.getPluginPackage
 import com.github.chrisjanusa.mvi.package_structure.getRootPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.plugin.PluginEffectFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.PluginEffectFileManager
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

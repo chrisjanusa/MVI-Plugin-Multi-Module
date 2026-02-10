@@ -3,7 +3,8 @@ package com.github.chrisjanusa.mvi.package_structure.manager.project
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.ParentInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
-import com.github.chrisjanusa.mvi.package_structure.manager.project.app.ProjectAppPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.app.AppModule
+import com.github.chrisjanusa.mvi.package_structure.manager.foundation.FoundationModule
 import com.github.chrisjanusa.mvi.package_structure.manager.project.gradle.GradlePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.LibraryManager
 import com.github.chrisjanusa.mvi.package_structure.manager.project.manifest.ManifestManager
@@ -22,12 +23,12 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
         file.findChild(ProjectGradleManager.NAME)?.let { ProjectGradleManager(it) }
     }
 
-    val appPackage by lazy {
-        file.findChild(ProjectAppPackage.NAME)?.let { ProjectAppPackage(it) }
+    val foundationModule by lazy {
+        file.findChild(FoundationModule.NAME)?.let { FoundationModule(it) }
     }
 
-    val moduleGradle by lazy {
-        appPackage?.moduleGradle
+    val appModule by lazy {
+        file.findChild(AppModule.NAME)?.let { AppModule(it) }
     }
 
     val manifest by lazy {
@@ -50,6 +51,6 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
         override fun createInstance(virtualFile: VirtualFile) = ProjectPackage(virtualFile)
 
         override val allChildrenInstanceCompanions: List<InstanceCompanion>
-            get() = listOf(ProjectAppPackage, ProjectGradleManager, GradlePackage)
+            get() = listOf(AppModule, ProjectGradleManager, GradlePackage)
     }
 }

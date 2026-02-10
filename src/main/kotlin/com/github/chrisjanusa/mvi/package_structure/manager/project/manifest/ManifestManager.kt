@@ -2,7 +2,7 @@ package com.github.chrisjanusa.mvi.package_structure.manager.project.manifest
 
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticInstanceCompanion
-import com.github.chrisjanusa.mvi.package_structure.manager.app.AppActivityFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.app.AppActivityFileManager
 import com.github.chrisjanusa.mvi.package_structure.manager.base.FileManager
 import com.intellij.openapi.vfs.VirtualFile
 

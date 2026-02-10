@@ -2,9 +2,9 @@ package com.github.chrisjanusa.mvi.package_structure
 
 import com.github.chrisjanusa.mvi.helper.file_helper.isValidFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
-import com.github.chrisjanusa.mvi.package_structure.manager.RootPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.FeaturePackage
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.plugin.PluginPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.FeaturePackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.PluginPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.ProjectPackage
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
@@ -44,7 +44,7 @@ fun AnActionEvent.getRootPackage(): RootPackage? = getManagerOfType(RootPackage)
 fun AnActionEvent.getFeaturePackage(): FeaturePackage? = getManagerOfType(FeaturePackage) as? FeaturePackage
 fun AnActionEvent.getPluginPackage(): PluginPackage? = getManagerOfType(PluginPackage) as? PluginPackage
 
-private fun VirtualFile.getManagerOfType(managerType: InstanceCompanion): Manager? {
+fun VirtualFile.getManagerOfType(managerType: InstanceCompanion): Manager? {
     if (managerType.isInstance(this)) return managerType.createInstance(this)
     if (isValidFile())
         return parent.getManagerOfType(managerType)

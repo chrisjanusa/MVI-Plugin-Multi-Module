@@ -3,8 +3,8 @@ package com.github.chrisjanusa.mvi.action.feature.service.mapper
 import com.github.chrisjanusa.mvi.helper.file_helper.isInsideServicePackage
 import com.github.chrisjanusa.mvi.package_structure.getFeaturePackage
 import com.github.chrisjanusa.mvi.package_structure.getManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.domain_model.DomainModelFileManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.domain_model.DomainModelPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.domain_model.DomainModelFileManager
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.domain_model.DomainModelPackage
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

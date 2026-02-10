@@ -1,13 +1,13 @@
 package com.github.chrisjanusa.mvi.helper.file_helper
 
 import com.github.chrisjanusa.mvi.package_structure.getManager
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.FeaturePackage
-import com.github.chrisjanusa.mvi.package_structure.manager.feature.service.FeatureServicePackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.FeaturePackage
+import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.FeatureServicePackage
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.FeatureChild
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.FeatureDirectChild
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.ServiceChild
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.github.chrisjanusa.mvi.package_structure.manager.RootPackage
+import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootDirectChild
 
 fun AnActionEvent.isRootPackageOrDirectChild(): Boolean {
