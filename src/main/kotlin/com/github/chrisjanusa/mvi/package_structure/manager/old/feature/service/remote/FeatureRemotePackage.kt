@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.remote
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.helper.file_helper.toSnakeCase

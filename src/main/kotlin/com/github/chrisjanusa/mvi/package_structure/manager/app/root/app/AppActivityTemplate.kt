@@ -31,8 +31,8 @@ internal class AppActivityTemplate(
         "import ${appPackage.rootPackage.diPackage?.localAppGraph?.packagePath}\n" +
         "import ${appPackage.rootPackage.diPackage?.metroAppGraph?.packagePath}\n" +
         "import ${appPackage.rootPackage.themePackage?.packagePath}.${appName}Theme\n" +
-        // TODO: core/nav package CoreNavAction "import ${}\n" +
-        // TODO: core/nav package NavGraphContributor"import ${}\n" +
+        "import ${projectPackage?.corePackage?.navModule?.coreNavPackage?.navAction?.packagePath}\n" +
+        "import ${projectPackage?.corePackage?.navModule?.coreNavPackage?.navGraphContributor?.packagePath}\n" +
         "import dev.zacsweers.metro.AppScope\n" +
         "import dev.zacsweers.metro.ContributesIntoMap\n" +
         "import dev.zacsweers.metro.Inject\n" +

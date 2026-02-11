@@ -3,12 +3,11 @@ package com.github.chrisjanusa.mvi.package_structure.manager.module
 import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
 import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
-import com.github.chrisjanusa.mvi.package_structure.manager.app.AppModule.Companion.createNewDirectory
 import com.intellij.openapi.vfs.VirtualFile
 import kotlinx.html.InputType
 
 abstract class ModuleManager(file: VirtualFile) : PackageManager(file) {
-    abstract val moduleGradle : ModuleGradleManager?
+    abstract val moduleGradle: ModuleGradleManager?
 
     private val srcPackage by lazy {
         file.findChildFile(SRC_PACKAGE_NAME)
@@ -47,20 +46,25 @@ abstract class ModuleManager(file: VirtualFile) : PackageManager(file) {
 
     fun createUnitTestPackage() =
         createNewDirectory(SRC_PACKAGE_NAME)
-            ?.createNewDirectory(JAVA_PACKAGE_NAME)
             ?.createNewDirectory(UNIT_TEST_PACKAGE_NAME)
+            ?.createNewDirectory(JAVA_PACKAGE_NAME)
             ?.createDownPackagePath(moduleGradle?.getRootPackage())
 
-    fun createCodePackage() =
-        createNewDirectory(SRC_PACKAGE_NAME)
-            ?.createNewDirectory(JAVA_PACKAGE_NAME)
+    fun createCodePackage(): VirtualFile? {
+        val mainPackage = createNewDirectory(SRC_PACKAGE_NAME)
             ?.createNewDirectory(CODE_PACKAGE_NAME)
+
+        mainPackage?.let { ModuleManifestFileManager.createNewInstance(it) }
+
+        return mainPackage
+            ?.createNewDirectory(JAVA_PACKAGE_NAME)
             ?.createDownPackagePath(moduleGradle?.getRootPackage())
+    }
 
     fun createAndroidTestPackage() =
         createNewDirectory(SRC_PACKAGE_NAME)
-            ?.createNewDirectory(JAVA_PACKAGE_NAME)
             ?.createNewDirectory(ANDROID_TEST_PACKAGE_NAME)
+            ?.createNewDirectory(JAVA_PACKAGE_NAME)
             ?.createDownPackagePath(moduleGradle?.getRootPackage())
 
     private fun VirtualFile.navigateDownPackagePath(packagePath: String?): VirtualFile? {

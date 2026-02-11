@@ -1,5 +1,9 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.core.remote
 
+import com.github.chrisjanusa.mvi.helper.file_helper.Extension
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
+import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
+import com.github.chrisjanusa.mvi.helper.file_helper.findChildFileWithExtension
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.core.CorePackage
@@ -10,6 +14,10 @@ class CoreRemoteModule(file: VirtualFile): ModuleManager(file) {
 
     val coreRemotePackage by lazy {
         codePackageFile?.let { CoreRemotePackage(it) }
+    }
+
+    override val moduleGradle by lazy {
+        file.findChildFileWithExtension(CoreRemoteModuleGradleManager.NAME, Extension.Kts)?.let { CoreRemoteModuleGradleManager(it) }
     }
 
     private fun createAllChildren() {

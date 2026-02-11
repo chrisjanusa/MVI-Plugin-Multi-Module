@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.app.root.theme
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion

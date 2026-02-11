@@ -5,7 +5,6 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceC
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticExcludeChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.base.ModelFileManager
-import com.github.chrisjanusa.mvi.package_structure.manager.old.common.CommonPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.FeaturePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.database.DatabasePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.database.DatabaseWrapperPackage

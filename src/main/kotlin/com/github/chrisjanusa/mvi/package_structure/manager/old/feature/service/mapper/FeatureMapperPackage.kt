@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.mapper
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager

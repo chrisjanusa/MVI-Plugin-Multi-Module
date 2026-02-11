@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.domain_model
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.ChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.base.ModelFileManager
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.FeatureChild

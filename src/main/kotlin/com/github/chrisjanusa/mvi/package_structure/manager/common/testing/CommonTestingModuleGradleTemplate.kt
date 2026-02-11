@@ -1,0 +1,30 @@
+package com.github.chrisjanusa.mvi.package_structure.manager.common.testing
+
+import com.github.chrisjanusa.mvi.package_structure.manager.base.Template
+
+class CommonTestingModuleGradleTemplate(
+    module: CommonTestingModule
+) : Template(module, CommonTestingModuleGradleManager.NAME) {
+    override fun createContent(): String {
+        val basePackage = projectPackage
+            ?.appModule
+            ?.moduleGradle
+            ?.getRootPackage()
+            ?.substringBeforeLast(".")
+            ?: "// TODO Insert Package Name"
+
+        return "plugins {\n" +
+                "    id(\"$basePackage.android.library\")\n" +
+                "    id(\"$basePackage.android.metro\")\n" +
+                "    alias(libs.plugins.kotlin.serialization)\n" +
+                "}\n" +
+                "\n" +
+                "android {\n" +
+                "    namespace = \"$basePackage.common.testing\"\n" +
+                "}\n" +
+                "\n" +
+                "dependencies {\n" +
+                "    implementation(libs.androidx.test.runner)\n" +
+                "}"
+    }
+}

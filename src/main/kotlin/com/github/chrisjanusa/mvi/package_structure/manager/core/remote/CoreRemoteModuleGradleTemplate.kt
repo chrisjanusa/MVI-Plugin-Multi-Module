@@ -4,7 +4,7 @@ import com.github.chrisjanusa.mvi.package_structure.manager.base.Template
 import com.github.chrisjanusa.mvi.package_structure.manager.core.nav.CoreNavModule
 
 internal class CoreRemoteModuleGradleTemplate(
-    val coreRemoteModule: CoreRemoteModule,
+    coreRemoteModule: CoreRemoteModule,
     fileName: String,
 ) : Template(
     packageManager = coreRemoteModule,
@@ -12,9 +12,8 @@ internal class CoreRemoteModuleGradleTemplate(
 ) {
 
     override fun createContent(): String {
-        val basePackage = coreRemoteModule
-            .projectPackage
-            .appModule
+        val basePackage = projectPackage
+            ?.appModule
             ?.moduleGradle
             ?.getRootPackage()
             ?.substringBeforeLast(".")

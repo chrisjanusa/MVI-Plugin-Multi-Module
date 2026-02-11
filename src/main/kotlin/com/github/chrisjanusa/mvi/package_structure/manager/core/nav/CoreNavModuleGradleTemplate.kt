@@ -3,7 +3,7 @@ package com.github.chrisjanusa.mvi.package_structure.manager.core.nav
 import com.github.chrisjanusa.mvi.package_structure.manager.base.Template
 
 internal class CoreNavModuleGradleTemplate(
-    val coreNavModule: CoreNavModule,
+    coreNavModule: CoreNavModule,
     fileName: String,
 ) : Template(
     packageManager = coreNavModule,
@@ -11,9 +11,8 @@ internal class CoreNavModuleGradleTemplate(
 ) {
 
     override fun createContent(): String {
-        val basePackage = coreNavModule
-            .projectPackage
-            .appModule
+        val basePackage = projectPackage
+            ?.appModule
             ?.moduleGradle
             ?.getRootPackage()
             ?.substringBeforeLast(".")

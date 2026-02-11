@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.foundation.foundation.state
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.package_structure.manager.base.FileManager
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion
 import com.intellij.openapi.vfs.VirtualFile

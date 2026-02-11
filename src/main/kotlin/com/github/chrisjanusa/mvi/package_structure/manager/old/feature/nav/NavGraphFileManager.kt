@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.nav
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticSuffixChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.ManagerProvider
 import com.github.chrisjanusa.mvi.package_structure.manager.base.FileManager

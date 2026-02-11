@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.ui
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.package_structure.manager.base.FileManager
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.helper.IPluginFileManager
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.helper.PluginFileManager

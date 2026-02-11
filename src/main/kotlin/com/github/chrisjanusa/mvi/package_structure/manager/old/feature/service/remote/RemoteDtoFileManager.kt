@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.service.remote
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticSuffixChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.base.ModelFileManager

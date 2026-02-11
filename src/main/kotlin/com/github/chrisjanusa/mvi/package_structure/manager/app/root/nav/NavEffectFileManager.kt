@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.app.root.nav
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticSuffixChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.di.AppDiPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.di.LocalAppGraphTemplate

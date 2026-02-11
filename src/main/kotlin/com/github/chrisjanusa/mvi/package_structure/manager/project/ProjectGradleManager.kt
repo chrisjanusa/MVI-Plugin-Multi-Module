@@ -35,7 +35,7 @@ class ProjectGradleManager(
         }
     }
 
-    companion object : StaticChildInstanceCompanion("build.gradle.kts", ProjectPackage) {
+    companion object : StaticChildInstanceCompanion("build.gradle", ProjectPackage) {
         override fun createInstance(virtualFile: VirtualFile) = ProjectGradleManager(virtualFile)
     }
 }

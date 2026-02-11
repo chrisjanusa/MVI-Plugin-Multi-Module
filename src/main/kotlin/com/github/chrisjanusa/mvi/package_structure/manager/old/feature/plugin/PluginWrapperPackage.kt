@@ -1,9 +1,9 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticExcludeChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
-import com.github.chrisjanusa.mvi.package_structure.manager.old.common.CommonPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.FeaturePackage
 import com.github.chrisjanusa.mvi.package_structure.parent_provider.FeatureDirectChild
 import com.intellij.openapi.vfs.VirtualFile

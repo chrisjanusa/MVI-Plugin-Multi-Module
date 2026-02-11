@@ -14,7 +14,7 @@ internal class NavEffectFileTemplate(
         "import ${projectPackage?.foundationModule?.foundationPackage?.appAction?.packagePath}\n" +
         "import ${projectPackage?.foundationModule?.foundationPackage?.onAppAction?.packagePath}\n" +
         "import ${projectPackage?.foundationModule?.foundationPackage?.appEffect?.packagePath}\n" +
-        // TODO: core/nav package CoreNavAction "import ${}\n" +
+        "import ${projectPackage?.corePackage?.navModule?.coreNavPackage?.navAction?.packagePath}\n" +
         "import dev.zacsweers.metro.AppScope\n" +
         "import dev.zacsweers.metro.ContributesIntoSet\n" +
         "import kotlinx.coroutines.flow.Flow\n" +

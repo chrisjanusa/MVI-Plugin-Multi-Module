@@ -3,7 +3,7 @@ package com.github.chrisjanusa.mvi.package_structure.manager.foundation
 import com.github.chrisjanusa.mvi.package_structure.manager.base.Template
 
 internal class FoundationModuleGradleTemplate(
-    val foundationModule: FoundationModule,
+    foundationModule: FoundationModule,
     fileName: String,
 ) : Template(
     packageManager = foundationModule,
@@ -11,9 +11,8 @@ internal class FoundationModuleGradleTemplate(
 ) {
 
     override fun createContent(): String {
-        val basePackage = foundationModule
-            .projectPackage
-            .appModule
+        val basePackage = projectPackage
+            ?.appModule
             ?.moduleGradle
             ?.getRootPackage()
             ?.substringBeforeLast(".")

@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.core
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion
@@ -42,7 +43,7 @@ class CorePackage(file: VirtualFile): PackageManager(file)  {
                 CoreRemoteModule.Companion,
             )
 
-        fun createNewInstance(insertionPackage: FoundationPackage): CorePackage? {
+        fun createNewInstance(insertionPackage: ProjectPackage): CorePackage? {
             val packageManager = insertionPackage.createNewDirectory(NAME)?.let { CorePackage(it) }
             packageManager?.createAllChildren()
             return packageManager

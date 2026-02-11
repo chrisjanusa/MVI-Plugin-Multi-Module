@@ -1,14 +1,13 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.foundation
 
-import com.github.chrisjanusa.mvi.helper.file_helper.findChildFile
+import com.github.chrisjanusa.mvi.helper.file_helper.Extension
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
+import com.github.chrisjanusa.mvi.helper.file_helper.findChildFileWithExtension
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.module.ModuleManager
-import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
-import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.foundation.foundation.FoundationPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.ProjectPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.module.ModuleGradleManager
 import com.intellij.openapi.vfs.VirtualFile
 
 class FoundationModule(file: VirtualFile): ModuleManager(file) {
@@ -17,7 +16,7 @@ class FoundationModule(file: VirtualFile): ModuleManager(file) {
     }
 
     override val moduleGradle by lazy {
-        file.findChildFile(FoundationModuleGradleManager.NAME)?.let { FoundationModuleGradleManager(it) }
+        file.findChildFileWithExtension(FoundationModuleGradleManager.NAME, Extension.Kts)?.let { FoundationModuleGradleManager(it) }
     }
 
     val foundationPackage by lazy {

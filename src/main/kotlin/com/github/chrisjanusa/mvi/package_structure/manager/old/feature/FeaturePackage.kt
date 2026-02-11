@@ -1,5 +1,6 @@
 package com.github.chrisjanusa.mvi.package_structure.manager.old.feature
 
+import com.github.chrisjanusa.mvi.helper.file_helper.createNewDirectory
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.Manager
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.ChildInstanceCompanion

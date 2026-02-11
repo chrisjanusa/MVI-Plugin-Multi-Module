@@ -52,8 +52,4 @@ abstract class ModuleGradleManager(
             .substringAfter("\"")
             .substringBeforeLast("\"")
     }
-
-//    companion object : StaticExcludeChildInstanceCompanion("build.gradle.kts", ProjectPackage.Companion) {
-//        override fun createInstance(virtualFile: VirtualFile) = ModuleGradleManager(virtualFile)
-//    }
 }
