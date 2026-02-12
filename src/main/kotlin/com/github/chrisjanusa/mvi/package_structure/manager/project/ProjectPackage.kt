@@ -5,6 +5,7 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceC
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.ParentInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.app.AppModule
+import com.github.chrisjanusa.mvi.package_structure.manager.build_logic.BuildLogicPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.common.CommonPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.core.CorePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.foundation.FoundationModule
@@ -47,6 +48,14 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
         file.findFile(ManifestManager.PATH_FROM_PROJECT)?.let { ManifestManager(it) }
     }
 
+    val buildLogic by lazy {
+        file.findChild(BuildLogicPackage.NAME)?.let { BuildLogicPackage(it) }
+    }
+
+    val basePackagePath by lazy {
+        appModule?.moduleGradle?.getRootPackage()
+    }
+
     val libraryManager by lazy {
         val libsManager = libs
         val projectGradleManager = projectGradle
@@ -69,6 +78,7 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
                 CorePackage.Companion,
                 CommonPackage.Companion,
                 ProjectGradleManager.Companion,
+                BuildLogicPackage.Companion,
             )
 
         fun createNewInstance(project: Project): ProjectPackage? {
@@ -76,6 +86,7 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
                 FoundationModule.createNewInstance(this)
                 CorePackage.createNewInstance(this)
                 CommonPackage.createNewInstance(this)
+                BuildLogicPackage.createNewInstance(this)
             }
         }
     }
