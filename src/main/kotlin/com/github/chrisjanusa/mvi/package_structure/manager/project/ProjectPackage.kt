@@ -8,6 +8,7 @@ import com.github.chrisjanusa.mvi.package_structure.manager.app.AppModule
 import com.github.chrisjanusa.mvi.package_structure.manager.build_logic.BuildLogicPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.common.CommonPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.core.CorePackage
+import com.github.chrisjanusa.mvi.package_structure.manager.feature.FeaturePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.foundation.FoundationModule
 import com.github.chrisjanusa.mvi.package_structure.manager.project.gradle.GradlePackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.LibraryManager
@@ -79,6 +80,7 @@ class ProjectPackage(file: VirtualFile): PackageManager(file) {
                 CommonPackage.Companion,
                 ProjectGradleManager.Companion,
                 BuildLogicPackage.Companion,
+                FeaturePackage.Companion,
             )
 
         fun createNewInstance(project: Project): ProjectPackage? {

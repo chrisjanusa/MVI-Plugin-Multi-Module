@@ -2,9 +2,6 @@ package com.github.chrisjanusa.mvi.package_structure
 
 import com.github.chrisjanusa.mvi.helper.file_helper.isValidFile
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceCompanion
-import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.FeaturePackage
-import com.github.chrisjanusa.mvi.package_structure.manager.old.feature.plugin.PluginPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.ProjectPackage
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
@@ -15,8 +12,9 @@ fun AnActionEvent.getManager(): Manager? {
     return currFile.getManager()
 }
 
+// TODO: This is super expensive so double check if we can remove this somehow
 fun VirtualFile.getManager() : Manager? {
-    if (RootPackage.isInstance(this)) return RootPackage(this)
+    if (ProjectPackage.isInstance(this)) return ProjectPackage(this)
     val potentialManagers = parent.getChildrenInstanceCompanion()
     if (potentialManagers.isEmpty()) return null
     val managerInstanceCompanion  = potentialManagers.firstOrNull {
@@ -27,7 +25,6 @@ fun VirtualFile.getManager() : Manager? {
 
 private fun VirtualFile.getChildrenInstanceCompanion(): List<InstanceCompanion> {
     if (ProjectPackage.isInstance(this)) return ProjectPackage.allChildrenInstanceCompanions
-    if (RootPackage.isInstance(this)) return RootPackage.allChildrenInstanceCompanions
     val potentialManagers = parent.getChildrenInstanceCompanion()
     val managerInstanceCompanion  = potentialManagers.firstOrNull {
         it.isInstance(this)
@@ -40,10 +37,6 @@ fun AnActionEvent.getManagerOfType(managerType: InstanceCompanion): Manager? {
     return currFile.getManagerOfType(managerType)
 }
 
-fun AnActionEvent.getRootPackage(): RootPackage? = getManagerOfType(RootPackage) as? RootPackage
-fun AnActionEvent.getFeaturePackage(): FeaturePackage? = getManagerOfType(FeaturePackage) as? FeaturePackage
-fun AnActionEvent.getPluginPackage(): PluginPackage? = getManagerOfType(PluginPackage) as? PluginPackage
-
 fun VirtualFile.getManagerOfType(managerType: InstanceCompanion): Manager? {
     if (managerType.isInstance(this)) return managerType.createInstance(this)
     if (isValidFile())
@@ -51,32 +44,4 @@ fun VirtualFile.getManagerOfType(managerType: InstanceCompanion): Manager? {
     else
         return null
 }
-
-
-
-//private val appPackageManagers: List<InstanceCompanion> = listOf(
-//    KoinInitFileManager,
-//    KoinModuleFileManager,
-//    AppNavEffectFileManager,
-//    AppNavManagerFileManager,
-//    AppActivityFileManager,
-//    AppApplicationFileManager,
-//    AppViewModelFileManager,
-//    AppDiPackage,
-//    AppPackage,
-//    AppEffectPackage,
-//    AppNavPackage
-//)
-//
-//private val commonPackageManagers: List<InstanceCompanion> = listOf(
-//    CommonHelperPackage,
-//    CommonNavPackage,
-//    CommonPackage,
-//    ClassNameHelperFileManager,
-//    CoreNavActionFileManager
-//)
-//
-//private val featurePackageManagers: List<InstanceCompanion> = listOf(
-//
-//)
 

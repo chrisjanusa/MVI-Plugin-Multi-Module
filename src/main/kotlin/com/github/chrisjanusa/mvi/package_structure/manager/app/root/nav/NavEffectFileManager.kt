@@ -5,14 +5,13 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticSuf
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.di.AppDiPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.di.LocalAppGraphTemplate
 import com.github.chrisjanusa.mvi.package_structure.manager.base.FileManager
-import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootChild
 import com.intellij.openapi.vfs.VirtualFile
 
-class NavEffectFileManager(file: VirtualFile) : FileManager(file), RootChild {
+class NavEffectFileManager(file: VirtualFile) : FileManager(file) {
     val diModule by lazy {
         AppDiPackage(file.parent)
     }
-    override val rootPackage by lazy {
+    val rootPackage by lazy {
         diModule.rootPackage
     }
 

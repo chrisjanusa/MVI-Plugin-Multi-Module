@@ -8,10 +8,7 @@ import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.core.nav.CoreNavModule
 import com.github.chrisjanusa.mvi.package_structure.manager.core.remote.CoreRemoteModule
 import com.github.chrisjanusa.mvi.package_structure.manager.foundation.foundation.FoundationPackage
-import com.github.chrisjanusa.mvi.package_structure.manager.nav.NavComponentFileManager
-import com.github.chrisjanusa.mvi.package_structure.manager.nav.NavComponentIdFileManager
 import com.github.chrisjanusa.mvi.package_structure.manager.project.ProjectPackage
-import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootChild
 import com.intellij.openapi.vfs.VirtualFile
 
 class CorePackage(file: VirtualFile): PackageManager(file)  {

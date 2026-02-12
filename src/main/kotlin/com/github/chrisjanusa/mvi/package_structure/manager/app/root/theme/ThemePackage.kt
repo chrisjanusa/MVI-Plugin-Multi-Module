@@ -6,13 +6,12 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.InstanceC
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChildInstanceCompanion
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
-import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootChild
 import com.intellij.openapi.vfs.VirtualFile
 
-class ThemePackage(file: VirtualFile) : PackageManager(file), RootChild {
+class ThemePackage(file: VirtualFile) : PackageManager(file) {
     val featureName = name.toPascalCase()
 
-    override val rootPackage by lazy {
+    val rootPackage by lazy {
         RootPackage(file.parent)
     }
 

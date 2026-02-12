@@ -6,14 +6,13 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChi
 import com.github.chrisjanusa.mvi.package_structure.instance_companion.hasPattern
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
-import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootDirectChild
 import com.intellij.openapi.vfs.VirtualFile
 
-class AppPackage(file: VirtualFile) : PackageManager(file), RootDirectChild {
+class AppPackage(file: VirtualFile) : PackageManager(file) {
     val appName by lazy {
         (activity ?: application ?: viewModel)?.appName
     }
-    override val rootPackage by lazy {
+    val rootPackage by lazy {
         RootPackage(file.parent)
     }
 

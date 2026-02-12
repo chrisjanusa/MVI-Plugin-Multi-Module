@@ -3,7 +3,6 @@ package com.github.chrisjanusa.mvi.action.app
 
 import com.github.chrisjanusa.mvi.helper.file_helper.toPascalCase
 import com.github.chrisjanusa.mvi.package_structure.getManagerOfType
-import com.github.chrisjanusa.mvi.package_structure.getRootPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.librarygroup.addCoroutines
 import com.github.chrisjanusa.mvi.package_structure.manager.project.library.librarygroup.addKoin
@@ -15,31 +14,31 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 
 class CreateAppAction : AnAction("Initialize _App") {
     override fun actionPerformed(event: AnActionEvent) {
-        val rootPackage = event.getManagerOfType(RootPackage) as? RootPackage ?: return
-        val rootPackagePath = rootPackage.packagePath
-        val initialAppName = rootPackagePath.substringAfterLast(".").toPascalCase()
-        val createAppPromptResult = CreateAppPromptResult(appName = initialAppName)
-        val dialog = CreateAppDialog(createAppPromptResult)
-        val isCancelled = !dialog.showAndGet()
-        if (isCancelled) return
-        val projectPackage = rootPackage.projectPackage
-
-        val libraryManager = projectPackage?.libraryManager
-        libraryManager?.addKoin()
-        libraryManager?.addNavigation()
-        libraryManager?.addCoroutines()
-        libraryManager?.addSerialization()
-        libraryManager?.writeToGradle()
-
-        val appName = createAppPromptResult.appName.toPascalCase()
-
-        rootPackage.createAllChildren(appName)
-        rootPackage.deleteFile("MainActivity.kt")
-
-        val manifestManager = projectPackage?.manifest
-        manifestManager?.addApplication(appName)
-        rootPackage.appPackage?.activity?.let { manifestManager?.updateActivityName(it) }
-        manifestManager?.writeToDisk()
+//        val rootPackage = event.getManagerOfType(RootPackage) as? RootPackage ?: return
+//        val rootPackagePath = rootPackage.packagePath
+//        val initialAppName = rootPackagePath.substringAfterLast(".").toPascalCase()
+//        val createAppPromptResult = CreateAppPromptResult(appName = initialAppName)
+//        val dialog = CreateAppDialog(createAppPromptResult)
+//        val isCancelled = !dialog.showAndGet()
+//        if (isCancelled) return
+//        val projectPackage = rootPackage.projectPackage
+//
+//        val libraryManager = projectPackage?.libraryManager
+//        libraryManager?.addKoin()
+//        libraryManager?.addNavigation()
+//        libraryManager?.addCoroutines()
+//        libraryManager?.addSerialization()
+//        libraryManager?.writeToGradle()
+//
+//        val appName = createAppPromptResult.appName.toPascalCase()
+//
+//        rootPackage.createAllChildren(appName)
+//        rootPackage.deleteFile("MainActivity.kt")
+//
+//        val manifestManager = projectPackage?.manifest
+//        manifestManager?.addApplication(appName)
+//        rootPackage.appPackage?.activity?.let { manifestManager?.updateActivityName(it) }
+//        manifestManager?.writeToDisk()
     }
 
     override fun update(event: AnActionEvent) {
@@ -52,8 +51,9 @@ class CreateAppAction : AnAction("Initialize _App") {
 
     companion object {
         fun isEnabled(event: AnActionEvent): Boolean {
-            val rootPackage = event.getRootPackage() ?: return false
-            return !rootPackage.isInitialized
+//            val rootPackage = event.getRootPackage() ?: return false
+//            return !rootPackage.isInitialized
+            return false
         }
     }
 }

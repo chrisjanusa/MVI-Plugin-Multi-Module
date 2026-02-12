@@ -11,8 +11,7 @@ class ManifestManager(
 ) : FileManager(file) {
 
     fun updateActivityName(appActivityFileManager: AppActivityFileManager) {
-        val newPath = appActivityFileManager.packagePath.substringAfter(appActivityFileManager.rootPackage.packagePath)
-        findAndReplace(".MainActivity", newPath)
+        findAndReplace(".MainActivity", ".${appActivityFileManager.name}")
     }
 
     fun addApplication(appName: String) {

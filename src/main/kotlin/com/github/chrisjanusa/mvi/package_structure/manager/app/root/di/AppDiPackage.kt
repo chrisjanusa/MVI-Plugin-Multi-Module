@@ -7,14 +7,13 @@ import com.github.chrisjanusa.mvi.package_structure.instance_companion.StaticChi
 import com.github.chrisjanusa.mvi.package_structure.manager.PackageManager
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.RootPackage
 import com.github.chrisjanusa.mvi.package_structure.manager.app.root.app.AppPackage
-import com.github.chrisjanusa.mvi.package_structure.parent_provider.RootChild
 import com.intellij.openapi.vfs.VirtualFile
 
-class AppDiPackage(file: VirtualFile): PackageManager(file), RootChild {
+class AppDiPackage(file: VirtualFile): PackageManager(file) {
     val appPackage by lazy {
         AppPackage(file.parent)
     }
-    override val rootPackage by lazy {
+    val rootPackage by lazy {
         appPackage.rootPackage
     }
 
